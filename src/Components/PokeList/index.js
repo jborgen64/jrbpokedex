@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchPoke } from '../../redux/actions/pokeAction'
 import { searchPoke } from '../../redux/actions/searchAction';
 import './pokeList.css'
 
 function PokeList({ pokeData, fetchPoke, searchPoke }) {
+
+ 
 
   useEffect(() => {
     fetchPoke('https://pokeapi.co/api/v2/pokemon');

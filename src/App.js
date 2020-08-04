@@ -11,7 +11,7 @@ import Wrapper from './Components/Wrapper'
 
 function App({ searchedPoke }) {
 
-
+  
   return (
     <div className="App">
       <Navbar />
@@ -19,7 +19,7 @@ function App({ searchedPoke }) {
       <SearchBar />
       <br />
       <Wrapper>
-        { !searchedPoke.search ? <PokeList />  :  <PokeCard /> }
+         {!searchedPoke.search ? (<PokeList /> ) : (<PokeCard />) }
       </Wrapper>
     </div>
   );

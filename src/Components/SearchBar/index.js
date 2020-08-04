@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { searchPoke } from '../../redux/actions/searchAction'
@@ -32,7 +32,7 @@ class SearchBar extends Component {
   render() {
 
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit} onClick={this.props.togglePokeDisplay}>
         <div className="form-group" style={{'margin': '20px'}}>
           <h1>Search Pokemon</h1>
           <input type="text" className="form-control" onChange={this.onChange} aria-describedby="pokeSearch" />

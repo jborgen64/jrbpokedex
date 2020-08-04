@@ -22,7 +22,6 @@ const searchPokeFailure = error => {
 export const searchPokeClose = () => {
     return {
         type: SEARCH_POKE_CLOSE
-      
     }
 }
 
@@ -44,8 +43,8 @@ export const searchPoke = (search) => {
 }
 
 export const closePoke = () => {
+    console.log('closing poke')
     return (dispatch) => {
-        console.log('closing search')
         dispatch(searchPokeClose)
     }
 }

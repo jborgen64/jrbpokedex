@@ -1,24 +1,14 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
 import { connect } from 'react-redux';
 import { closePoke } from '../../redux/actions/searchAction'
+import { fetchPoke } from '../../redux/actions/pokeAction'
 import './pokeCard.css'
 
+
 class PokeCard extends Component {
-  constructor(props) {
-    super(props);
-
-    this.onClose = this.onClose.bind(this);
-    
-  }
-
-  onClose() {
-    this.props.closePoke()
-  }
-
-
-  render() {
+  
+  
+  render(props) {
     
     const types = this.props.searchedPoke.types[0].type.name
 
@@ -42,7 +32,7 @@ class PokeCard extends Component {
             <h5 className="card-text">{this.props.searchedPoke.stats[5].stat.name}: {this.props.searchedPoke.stats[5].base_stat}</h5>
           </div>
         </div>
-        <a href="#" className="btn btn-primary" onClick={this.onClose}>close</a>
+        <button className="btn btn-primary" onClick={() => window.location.reload(false)}>close</button>
       </div>
 
 
@@ -54,7 +44,7 @@ class PokeCard extends Component {
 
 
 PokeCard.propTypes = {
-  closePoke: PropTypes.func.isRequired
+  // closePoke: PropTypes.func.isRequired
   // searchedPoke: PropTypes.any.isRequired
 }
 
@@ -63,12 +53,13 @@ const mapStateToProps = state => ({
 })
 
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     closePoke: () => dispatch(closePoke()),
-    
-//   }
-// }
+const mapDispatchToProps = dispatch => {
+  return {
+  fetchPoke: (url) => dispatch(fetchPoke(url)),
+  closePoke: () => dispatch(closePoke())
+  }
+}
 
 
-export default connect(mapStateToProps, { closePoke })(PokeCard);
+
+export default connect(mapStateToProps, mapDispatchToProps)(PokeCard);

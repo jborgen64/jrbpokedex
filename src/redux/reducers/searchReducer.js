@@ -53,7 +53,6 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 search: false
-                
             }
 
         default: return state;
